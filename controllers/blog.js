@@ -2,7 +2,7 @@ const { isValidObjectId } = require("mongoose");
 const Blog = require("../models/blog");
 
 module.exports.blog_get=(req,res)=> {
-    Blog.find()
+    Blog.find().sort({'updated_At':1})
     .then(resp=> {
 
         res.json({data: resp,status:true})
